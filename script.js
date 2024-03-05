@@ -17,6 +17,8 @@ window.addEventListener("load", () => {
       // console.log(position);
       long = position.coords.longitude;
       lat = position.coords.latitude;
+      console.log(long);
+      console.log(lat);
       const base = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api}&units=metric`;
       console.log(base);
       fetch(base)
@@ -38,7 +40,7 @@ window.addEventListener("load", () => {
           const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
           const fahrenheit = (temp * 9) / 5 + 32;
 
-          // Converting Epoch(Unix) time to GMT
+          // Converting Epoch(Unix) time to GMT 
           const sunriseGMT = new Date(sunrise * 1000);
           const sunsetGMT = new Date(sunset * 1000);
 
@@ -48,10 +50,10 @@ window.addEventListener("load", () => {
           desc.textContent = `${description}`;
           tempC.textContent = `${temp.toFixed(2)} °C`;
           tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
-          sunriseDom.textContent = `${sunriseGMT.toLocalDateString()}, ${
+          sunriseDom.textContent = `${sunriseGMT.toLocaleDateString()}, ${
             sunriseGMT.toLocaleTimeString
-          }`;
-          sunsetDom.textContent = `${sunsetGMT.toLocalDateString()}, ${sunsetGMT.toLocaleTimeString()}`;
+()          }`;
+          sunsetDom.textContent = `${sunsetGMT.toLocaleDateString()}, ${sunsetGMT.toLocaleTimeString()}`;
         });
     });
   }
